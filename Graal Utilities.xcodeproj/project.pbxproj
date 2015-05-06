@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		76BE363E1AFAC93400AF564B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE363D1AFAC93400AF564B /* main.cpp */; };
+		76BE36541AFACAD400AF564B /* TGmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36521AFACAD400AF564B /* TGmap.cpp */; };
+		76BE36621AFACB4300AF564B /* TWeapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36601AFACB4300AF564B /* TWeapon.cpp */; };
+		76BE36651AFACB4E00AF564B /* TPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36631AFACB4E00AF564B /* TPlayer.cpp */; };
+		76BE36681AFACB5A00AF564B /* TLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36661AFACB5A00AF564B /* TLevel.cpp */; };
+		76BE36711AFACB8B00AF564B /* TTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE366F1AFACB8B00AF564B /* TTile.cpp */; };
+		76BE36741AFACB9000AF564B /* TSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36721AFACB9000AF564B /* TSign.cpp */; };
+		76BE36771AFACB9400AF564B /* TNPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36751AFACB9400AF564B /* TNPC.cpp */; };
+		76BE367A1AFACB9900AF564B /* TLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36781AFACB9900AF564B /* TLink.cpp */; };
+		76BE36801AFACBBF00AF564B /* TBaddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE367E1AFACBBF00AF564B /* TBaddy.cpp */; };
+		76BE36831AFACBD200AF564B /* TChest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36811AFACBD200AF564B /* TChest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +35,27 @@
 /* Begin PBXFileReference section */
 		76BE363A1AFAC93400AF564B /* Graal Utilities */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Graal Utilities"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BE363D1AFAC93400AF564B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		76BE36521AFACAD400AF564B /* TGmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TGmap.cpp; path = TGmap/TGmap.cpp; sourceTree = "<group>"; };
+		76BE36531AFACAD400AF564B /* TGmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGmap.h; path = TGmap/TGmap.h; sourceTree = "<group>"; };
+		76BE36561AFACB2200AF564B /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		76BE36601AFACB4300AF564B /* TWeapon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TWeapon.cpp; path = TWeapon/TWeapon.cpp; sourceTree = "<group>"; };
+		76BE36611AFACB4300AF564B /* TWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWeapon.h; path = TWeapon/TWeapon.h; sourceTree = "<group>"; };
+		76BE36631AFACB4E00AF564B /* TPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TPlayer.cpp; path = TPlayer/TPlayer.cpp; sourceTree = "<group>"; };
+		76BE36641AFACB4E00AF564B /* TPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPlayer.h; path = TPlayer/TPlayer.h; sourceTree = "<group>"; };
+		76BE36661AFACB5A00AF564B /* TLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TLevel.cpp; path = TLevel/TLevel.cpp; sourceTree = "<group>"; };
+		76BE36671AFACB5A00AF564B /* TLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLevel.h; path = TLevel/TLevel.h; sourceTree = "<group>"; };
+		76BE366F1AFACB8B00AF564B /* TTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TTile.cpp; path = TLevel/TTile/TTile.cpp; sourceTree = "<group>"; };
+		76BE36701AFACB8B00AF564B /* TTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTile.h; path = TLevel/TTile/TTile.h; sourceTree = "<group>"; };
+		76BE36721AFACB9000AF564B /* TSign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSign.cpp; path = TLevel/TSign/TSign.cpp; sourceTree = "<group>"; };
+		76BE36731AFACB9000AF564B /* TSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSign.h; path = TLevel/TSign/TSign.h; sourceTree = "<group>"; };
+		76BE36751AFACB9400AF564B /* TNPC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TNPC.cpp; path = TLevel/TNPC/TNPC.cpp; sourceTree = "<group>"; };
+		76BE36761AFACB9400AF564B /* TNPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNPC.h; path = TLevel/TNPC/TNPC.h; sourceTree = "<group>"; };
+		76BE36781AFACB9900AF564B /* TLink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TLink.cpp; path = TLevel/TLink/TLink.cpp; sourceTree = "<group>"; };
+		76BE36791AFACB9900AF564B /* TLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLink.h; path = TLevel/TLink/TLink.h; sourceTree = "<group>"; };
+		76BE367E1AFACBBF00AF564B /* TBaddy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TBaddy.cpp; path = TLevel/TBaddy/TBaddy.cpp; sourceTree = "<group>"; };
+		76BE367F1AFACBBF00AF564B /* TBaddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBaddy.h; path = TLevel/TBaddy/TBaddy.h; sourceTree = "<group>"; };
+		76BE36811AFACBD200AF564B /* TChest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TChest.cpp; path = TLevel/TChest/TChest.cpp; sourceTree = "<group>"; };
+		76BE36821AFACBD200AF564B /* TChest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TChest.h; path = TLevel/TChest/TChest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +89,109 @@
 			isa = PBXGroup;
 			children = (
 				76BE363D1AFAC93400AF564B /* main.cpp */,
+				76BE36561AFACB2200AF564B /* main.h */,
+				76BE365F1AFACB3A00AF564B /* TWeapon */,
+				76BE365E1AFACB3300AF564B /* TPlayer */,
+				76BE365D1AFACB2D00AF564B /* TGmap */,
+				76BE365C1AFACB2700AF564B /* TLevel */,
 			);
 			path = "Graal Utilities";
+			sourceTree = "<group>";
+		};
+		76BE365C1AFACB2700AF564B /* TLevel */ = {
+			isa = PBXGroup;
+			children = (
+				76BE366E1AFACB7B00AF564B /* TTile */,
+				76BE366D1AFACB7500AF564B /* TSign */,
+				76BE366C1AFACB6F00AF564B /* TNPC */,
+				76BE366B1AFACB6800AF564B /* TLink */,
+				76BE366A1AFACB6300AF564B /* TChest */,
+				76BE36691AFACB5E00AF564B /* TBaddy */,
+				76BE36661AFACB5A00AF564B /* TLevel.cpp */,
+				76BE36671AFACB5A00AF564B /* TLevel.h */,
+			);
+			name = TLevel;
+			sourceTree = "<group>";
+		};
+		76BE365D1AFACB2D00AF564B /* TGmap */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36521AFACAD400AF564B /* TGmap.cpp */,
+				76BE36531AFACAD400AF564B /* TGmap.h */,
+			);
+			name = TGmap;
+			sourceTree = "<group>";
+		};
+		76BE365E1AFACB3300AF564B /* TPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36631AFACB4E00AF564B /* TPlayer.cpp */,
+				76BE36641AFACB4E00AF564B /* TPlayer.h */,
+			);
+			name = TPlayer;
+			sourceTree = "<group>";
+		};
+		76BE365F1AFACB3A00AF564B /* TWeapon */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36601AFACB4300AF564B /* TWeapon.cpp */,
+				76BE36611AFACB4300AF564B /* TWeapon.h */,
+			);
+			name = TWeapon;
+			sourceTree = "<group>";
+		};
+		76BE36691AFACB5E00AF564B /* TBaddy */ = {
+			isa = PBXGroup;
+			children = (
+				76BE367E1AFACBBF00AF564B /* TBaddy.cpp */,
+				76BE367F1AFACBBF00AF564B /* TBaddy.h */,
+			);
+			name = TBaddy;
+			sourceTree = "<group>";
+		};
+		76BE366A1AFACB6300AF564B /* TChest */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36811AFACBD200AF564B /* TChest.cpp */,
+				76BE36821AFACBD200AF564B /* TChest.h */,
+			);
+			name = TChest;
+			sourceTree = "<group>";
+		};
+		76BE366B1AFACB6800AF564B /* TLink */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36781AFACB9900AF564B /* TLink.cpp */,
+				76BE36791AFACB9900AF564B /* TLink.h */,
+			);
+			name = TLink;
+			sourceTree = "<group>";
+		};
+		76BE366C1AFACB6F00AF564B /* TNPC */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36751AFACB9400AF564B /* TNPC.cpp */,
+				76BE36761AFACB9400AF564B /* TNPC.h */,
+			);
+			name = TNPC;
+			sourceTree = "<group>";
+		};
+		76BE366D1AFACB7500AF564B /* TSign */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36721AFACB9000AF564B /* TSign.cpp */,
+				76BE36731AFACB9000AF564B /* TSign.h */,
+			);
+			name = TSign;
+			sourceTree = "<group>";
+		};
+		76BE366E1AFACB7B00AF564B /* TTile */ = {
+			isa = PBXGroup;
+			children = (
+				76BE366F1AFACB8B00AF564B /* TTile.cpp */,
+				76BE36701AFACB8B00AF564B /* TTile.h */,
+			);
+			name = TTile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +250,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76BE36771AFACB9400AF564B /* TNPC.cpp in Sources */,
 				76BE363E1AFAC93400AF564B /* main.cpp in Sources */,
+				76BE36681AFACB5A00AF564B /* TLevel.cpp in Sources */,
+				76BE36541AFACAD400AF564B /* TGmap.cpp in Sources */,
+				76BE36651AFACB4E00AF564B /* TPlayer.cpp in Sources */,
+				76BE36621AFACB4300AF564B /* TWeapon.cpp in Sources */,
+				76BE36801AFACBBF00AF564B /* TBaddy.cpp in Sources */,
+				76BE36711AFACB8B00AF564B /* TTile.cpp in Sources */,
+				76BE367A1AFACB9900AF564B /* TLink.cpp in Sources */,
+				76BE36831AFACBD200AF564B /* TChest.cpp in Sources */,
+				76BE36741AFACB9000AF564B /* TSign.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -196,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -235,6 +377,7 @@
 				76BE36431AFAC93400AF564B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
