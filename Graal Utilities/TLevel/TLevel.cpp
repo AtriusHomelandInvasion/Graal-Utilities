@@ -131,7 +131,6 @@ bool TLevel::loadNW(string filePath) {
         }
 #endif
         
-/*
 #ifdef TBADDY_H_
         if ( line.substr(0,5) == "BADDY" ) {
             TBaddy baddy;
@@ -141,7 +140,6 @@ bool TLevel::loadNW(string filePath) {
             this->baddys.push_back(new TBaddy(baddy));
         }
 #endif
-*/
         
 #ifdef TSIGN_H_
         if ( line.substr(0,7) == "SIGNEND" ) {
