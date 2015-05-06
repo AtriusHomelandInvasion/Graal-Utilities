@@ -25,4 +25,5 @@ int main(int argc, const char * argv[]) {
     //cout << gmap.levels[66]->npcs[2]->line[1] << endl;
     
     //this is a changein the code, woo.
+    //this is another change..?
 }
