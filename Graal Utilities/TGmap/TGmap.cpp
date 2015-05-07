@@ -8,6 +8,7 @@
 
 #include "TGmap.h"
 #include "TLevel.h"
+#include "main.h"
 
 #include <iostream>
 #include <fstream>
@@ -49,7 +50,7 @@ bool TGmap::load(const char* filePath) {
             
             if ( line.substr(0, 6) == "HEIGHT" )  this->height  = atoi(line.substr(6, -1).c_str());
             if ( line.substr(0, 5) == "WIDTH" )   this->width   = atoi(line.substr(5, -1).c_str());
-            if ( line.substr(0, 7) == "MINIMAP" ) this->minimap = line.substr(5, -1).c_str();
+            if ( line.substr(0, 10) == "MINIMAPIMG" ) this->minimap = line.substr(11, -1).c_str();
             
             if ( line.substr(0, 13) == "LEVELNAMESEND" ) mode = 0;
             
@@ -60,7 +61,7 @@ bool TGmap::load(const char* filePath) {
                 for ( int i = 0; i < test.size(); i++ ) {
                     TLevel newLevel;
                     newLevel.name = test[i].substr(1,test[i].length()-2);
-                    newLevel.loadLevel(newLevel.name);
+                    newLevel.loadLevel(extractPath(filePath) + newLevel.name);
                     this->levels.push_back(new TLevel(newLevel));
                 }
             }

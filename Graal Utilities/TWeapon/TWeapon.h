@@ -12,8 +12,6 @@
 #include <iostream>
 #include <vector>
 
-class TWeapon;
-
 class TWeapon {
 public:
     std::string image;             // Image for the weapon in inventory and hud

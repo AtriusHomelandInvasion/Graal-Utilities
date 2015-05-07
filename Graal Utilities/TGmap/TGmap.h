@@ -14,8 +14,6 @@
 #include <stdio.h>
 #include "TLevel.h"
 
-class TGMAP;
-
 /*
  
  TGMAP Variables:

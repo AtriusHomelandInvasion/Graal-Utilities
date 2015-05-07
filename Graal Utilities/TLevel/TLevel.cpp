@@ -16,6 +16,8 @@ using namespace std;
 // this is needed for opening nw format levels and handling tiles
 string base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+string getBase64(int tile);
+
 // this is needed for grabbing tokens out of strings :)
 vector<string> Tokenize(string input, char delimiter) {
     vector<string> output;
@@ -283,6 +285,10 @@ bool TLevel::loadGraal(FILE *file, int version) {
 
 // Graal NW format
 bool TLevel::saveNW() {
+    
+    // Might just use this->name in the "fopen()"
+    std::cout << "output:" << this->name << std::endl;
+    
     FILE * pFile;
     pFile = fopen("output.txt", "wb");  // open file for write binary mode
     fprintf(pFile, "GLEVNW01\n");       // Header for NW level format
@@ -291,14 +297,18 @@ bool TLevel::saveNW() {
     for ( int y = 0; y < 64; y ++ ) {
         fprintf(pFile, "BOARD %d %d %d %d ", 0, y, 64, 0);
         for ( int x = 0; x < 64; x ++ ) {
-            //fprintf(pFile, "%s", this->tile[y * 64 + x].getBase64().c_str());
+            // This needs to convert tile to base64
+            // Then save that
+            fprintf(pFile, "%s", getBase64(this->tile[y * 64 + x]).c_str());
         }
         fprintf(pFile, "\n");           // goto next line
         
     }
     
     // LINKS
-    // fprintf("LINK %s %s %s %s %s %s %s\n", level, x, y, w, h, ex, ey);
+    for ( int i = 0; i < this->links.size()-1; i ++ ) {
+        //fprintf("LINK %s %s %s %s %s %s %s\n", this->links[i]->level, atoi(this->links[i]->srcX), this->links[i]->scrY, this->links[i]->width, this->links[i]->height, this->links[i]->destX, this->links[i]->destY);
+    }
     
     // NPCS
     // fprintf("NPC %s %d %d\n", imagename, x, y);
@@ -310,7 +320,9 @@ bool TLevel::saveNW() {
     // SIGN DATA HERE
     // fprintf("SIGNEND\n");
     
-     // ect
+    // BADDYS
+    
+    // CHESTS
     
     fclose(pFile); // close our file
     return 1;
@@ -336,6 +348,6 @@ void TTile::setTile(int tile) {
 }
 
 // get the base64 string of the tile, for use with nw levels
-//string TTile::getBase64() {
-//    return base64.substr(this->tile/64,1) + base64.substr(this->tile%64,1);
-//}
+string getBase64(int tile) {
+    return base64.substr(tile/64,1) + base64.substr(tile%64,1);
+}

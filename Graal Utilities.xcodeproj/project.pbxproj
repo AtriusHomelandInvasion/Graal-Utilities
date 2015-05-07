@@ -18,6 +18,8 @@
 		76BE367A1AFACB9900AF564B /* TLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36781AFACB9900AF564B /* TLink.cpp */; };
 		76BE36801AFACBBF00AF564B /* TBaddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE367E1AFACBBF00AF564B /* TBaddy.cpp */; };
 		76BE36831AFACBD200AF564B /* TChest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36811AFACBD200AF564B /* TChest.cpp */; };
+		76BE36871AFB2CF000AF564B /* TGani.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36851AFB2CF000AF564B /* TGani.cpp */; };
+		76BE368B1AFB2E5B00AF564B /* TSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76BE36891AFB2E5B00AF564B /* TSprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +58,10 @@
 		76BE367F1AFACBBF00AF564B /* TBaddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBaddy.h; path = TLevel/TBaddy/TBaddy.h; sourceTree = "<group>"; };
 		76BE36811AFACBD200AF564B /* TChest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TChest.cpp; path = TLevel/TChest/TChest.cpp; sourceTree = "<group>"; };
 		76BE36821AFACBD200AF564B /* TChest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TChest.h; path = TLevel/TChest/TChest.h; sourceTree = "<group>"; };
+		76BE36851AFB2CF000AF564B /* TGani.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TGani.cpp; path = TGani/TGani.cpp; sourceTree = "<group>"; };
+		76BE36861AFB2CF000AF564B /* TGani.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGani.h; path = TGani/TGani.h; sourceTree = "<group>"; };
+		76BE36891AFB2E5B00AF564B /* TSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSprite.cpp; path = TGani/TSprite/TSprite.cpp; sourceTree = "<group>"; };
+		76BE368A1AFB2E5B00AF564B /* TSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSprite.h; path = TGani/TSprite/TSprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 			children = (
 				76BE363D1AFAC93400AF564B /* main.cpp */,
 				76BE36561AFACB2200AF564B /* main.h */,
+				76BE36841AFB2CD800AF564B /* TGani */,
 				76BE365F1AFACB3A00AF564B /* TWeapon */,
 				76BE365E1AFACB3300AF564B /* TPlayer */,
 				76BE365D1AFACB2D00AF564B /* TGmap */,
@@ -194,6 +201,25 @@
 			name = TTile;
 			sourceTree = "<group>";
 		};
+		76BE36841AFB2CD800AF564B /* TGani */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36881AFB2E3700AF564B /* TSprite */,
+				76BE36851AFB2CF000AF564B /* TGani.cpp */,
+				76BE36861AFB2CF000AF564B /* TGani.h */,
+			);
+			name = TGani;
+			sourceTree = "<group>";
+		};
+		76BE36881AFB2E3700AF564B /* TSprite */ = {
+			isa = PBXGroup;
+			children = (
+				76BE36891AFB2E5B00AF564B /* TSprite.cpp */,
+				76BE368A1AFB2E5B00AF564B /* TSprite.h */,
+			);
+			name = TSprite;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,11 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				76BE36771AFACB9400AF564B /* TNPC.cpp in Sources */,
+				76BE36871AFB2CF000AF564B /* TGani.cpp in Sources */,
 				76BE363E1AFAC93400AF564B /* main.cpp in Sources */,
 				76BE36681AFACB5A00AF564B /* TLevel.cpp in Sources */,
 				76BE36541AFACAD400AF564B /* TGmap.cpp in Sources */,
 				76BE36651AFACB4E00AF564B /* TPlayer.cpp in Sources */,
 				76BE36621AFACB4300AF564B /* TWeapon.cpp in Sources */,
+				76BE368B1AFB2E5B00AF564B /* TSprite.cpp in Sources */,
 				76BE36801AFACBBF00AF564B /* TBaddy.cpp in Sources */,
 				76BE36711AFACB8B00AF564B /* TTile.cpp in Sources */,
 				76BE367A1AFACB9900AF564B /* TLink.cpp in Sources */,

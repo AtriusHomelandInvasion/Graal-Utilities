@@ -10,6 +10,4 @@
 
 TWeapon::TWeapon() {}
 
-TWeapon::~TWeapon() {
-    std::cout << "~TPlayer()" << std::endl;
-}
+TWeapon::~TWeapon() {}
