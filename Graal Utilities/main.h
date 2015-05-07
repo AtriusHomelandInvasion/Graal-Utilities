@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Matthew Warner. All rights reserved.
 //
 
-#ifndef Learning_main_h
-#define Learning_main_h
+#ifndef MAIN_H_
+#define MAIN_H_
 
 #include "TTile.h"
 #include "TChest.h"
@@ -20,4 +20,4 @@
 #include "TPlayer.h"
 #include "TBaddy.h"
 
-#endif
+#endif  /* defined(MAIN_H_) */

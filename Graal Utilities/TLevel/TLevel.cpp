@@ -34,8 +34,8 @@ TLevel::TLevel() {
     this->name = "new1.nw";          // our default level name will be new#.nw
     
     // this will generate a blank board with no links
-    for ( int i = 0; i < 64; i ++ ) {
-        //this->tile[i].setTile(0);
+    for ( int i = 0; i < 4096; i ++ ) {
+        this->tile[i] = 0;
     }
 }
 
@@ -152,7 +152,7 @@ bool TLevel::loadNW(string filePath) {
             this->signs[this->signs.size()-1]->messages.push_back(line);
         }
         
-        if ( line.substr(0,4) == "SIGN" && line.substr(0,7) != "SIGNEND") {
+        if ( line.substr(0,4) == "SIGN" && line.substr(0,7) != "SIGNEND" && mode == 0) {
             TSign sign;
             sign.x = atoi(v[1].c_str());
             sign.y = atoi(v[2].c_str());
@@ -170,7 +170,7 @@ bool TLevel::loadNW(string filePath) {
             this->npcs[this->npcs.size()-1]->line.push_back(line);
         }
         
-        if ( line.substr(0,3) == "NPC" && line.substr(0,6) != "NPCEND") {
+        if ( line.substr(0,3) == "NPC" && line.substr(0,6) != "NPCEND" && mode == 0) {
             TNPC npc;
             npc.x = atoi(v[2].c_str());
             npc.y = atoi(v[3].c_str());

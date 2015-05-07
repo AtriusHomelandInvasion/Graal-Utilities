@@ -35,9 +35,8 @@ public:
     std::vector<TSign *> signs;    // signs within the level
     std::vector<TNPC *> npcs;      // npcs within the level
     std::vector<TChest *> chests;  // schests within the level
-#ifdef TBADDY_H_
     std::vector<TBaddy *> baddys;  // baddies within the level
-#endif
+
     std::string name; // level name (its the filename basically)
     TLevel();
     ~TLevel();
