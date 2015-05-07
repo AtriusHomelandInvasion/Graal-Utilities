@@ -142,7 +142,7 @@ bool TLevel::loadNW(string filePath) {
 #endif
         
 #ifdef TSIGN_H_
-        if ( line.substr(0,7) == "SIGNEND" ) {
+        if ( line.substr(0,7) == "SIGNEND" && mode == 2) {
             mode = 0;
         }
         
@@ -162,7 +162,7 @@ bool TLevel::loadNW(string filePath) {
 #endif
         
 #ifdef TNPC_H_
-        if ( line.substr(0,6) == "NPCEND" ) {
+        if ( line.substr(0,6) == "NPCEND" && mode == 3 ) {
             mode = 0;
         }
       
