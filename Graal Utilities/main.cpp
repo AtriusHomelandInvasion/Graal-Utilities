@@ -73,9 +73,11 @@ int main(int argc, const char * argv[]) {
     // WARNING: DON'T ACCESS VARIABLES THAT DO NOT EXIST YET
     //          WILL CAUSE A CRASH !!!
     
-    cout << gmap.levels.size() << " levels." << endl;
+    //cout << gmap.levels.size() << " levels." << endl;
     //cout << gmap.levels[66]->name << endl;
     //cout << gmap.levels[66]->signs[0]->messages[0] << endl;
     //cout << gmap.levels[66]->chests[0]->item << endl;
     //cout << gmap.levels[66]->npcs[2]->line[1] << endl;
+    
+    printf("Finished!\n");
 }

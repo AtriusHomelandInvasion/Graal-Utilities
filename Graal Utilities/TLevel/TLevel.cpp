@@ -16,8 +16,6 @@ using namespace std;
 // this is needed for opening nw format levels and handling tiles
 string base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-string getBase64(int tile);
-
 // this is needed for grabbing tokens out of strings :)
 vector<string> Tokenize(string input, char delimiter) {
     vector<string> output;
@@ -28,17 +26,8 @@ vector<string> Tokenize(string input, char delimiter) {
     return output;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////
-// Constructors / Destructors
-////////////////////////////////////////////////////////////////////////////////////////////
-
 TLevel::TLevel() {
     this->name = "new1.nw";          // our default level name will be new#.nw
-    
-    // this will generate a blank board with no links
-    for ( int i = 0; i < 4096; i ++ ) {
-        this->tile[i] = 0;
-    }
 }
 
 TLevel::~TLevel() {
@@ -46,13 +35,11 @@ TLevel::~TLevel() {
     // i think this is done automatically tho
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////
+//
 // TLevel loadlevel function
 //
 // Only load levels using this funciton.. It will automatically load the rest and avoid any
 // problems that may occur.
-//
-////////////////////////////////////////////////////////////////////////////////////////////
 
 bool TLevel::loadLevel(string filePath) {
     this->name = filePath;                          // still need to extract filename from filePath
@@ -89,18 +76,21 @@ bool TLevel::loadNW(string filePath) {
         vector<string> v;
         stringstream buf(line);
         for(string token; getline(buf, token, ' '); ) v.push_back(token);
-        
+
+#ifdef TTILE_H_
         // load tile's from board
         if ( line.substr(0,5) ==  "BOARD" ) {
             for ( int i = 0; i < 64; i++ ) {
-                unsigned long tile = (base64.find(v[5].substr(i*2,1).c_str()) * 64) + (base64.find(v[5].substr(i*2+1,1).c_str()));
+                unsigned long tile = (int)(base64.find(v[5].substr(i*2,1).c_str()) * 64) + (base64.find(v[5].substr(i*2+1,1).c_str()));
+                
                 int y = atoi(v[2].c_str());
-                this->tile[y * 64 + i] = (int)tile;
+                this->tile[y * 64 + i].tile = tile;
             }
         }
+#endif
         
 #ifdef TLINK_H_
-        // load links from board
+        // load links from board 
         if ( line.substr(0,4) == "LINK" ) {
             TLink link;
             link.level  = v[1].c_str();
@@ -113,15 +103,8 @@ bool TLevel::loadNW(string filePath) {
             this->links.push_back(new TLink(link));
         }
 #endif
-        
-        // CHEST - depricated
-        // I can make it read all my sign's and append them to the file as npc's :)
-        // and join them to a custom class lol
-        // this.join("chest");
-        // this.item = "bomb";
-        // this.quantity = 1;
-        // etc
-        
+
+// DEPRECATED
 #ifdef TCHEST_H_
         if ( line.substr(0,5) == "CHEST" ) {
             TChest chest;
@@ -232,7 +215,7 @@ bool TLevel::loadGraal(FILE *file, int version) {
 
         // If our count is 1, just read in a tile.  This is the default mode.
         if (count == 1) {
-            //this->tile[boardIndex].setTile((short)code);
+            this->tile[boardIndex].tile = (short)code;
             boardIndex ++;
             continue;
         }
@@ -251,9 +234,9 @@ bool TLevel::loadGraal(FILE *file, int version) {
             
             // Add the tiles now.
             for (int i = 0; i < count && boardIndex < 4095; ++i) {
-                //this->tile[boardIndex/64][boardIndex%64].setTile(tiles[0]);
+                this->tile[boardIndex].tile = tiles[0];
                 boardIndex ++;
-                //this->tile[boardIndex/64][boardIndex%64].setTile(tiles[1]);
+                this->tile[boardIndex].tile = tiles[1];
                 boardIndex ++;
             }
             
@@ -265,7 +248,7 @@ bool TLevel::loadGraal(FILE *file, int version) {
         // Regular RLE scheme.
         else {
             for (int i = 0; i < count && boardIndex < 4096; ++i) {
-                //this->tile[boardIndex/64][boardIndex%64].setTile((short)code);
+                this->tile[boardIndex/64 + boardIndex%64].tile = (short)code;
                 boardIndex ++;
             }
             count = 1;
@@ -299,7 +282,7 @@ bool TLevel::saveNW() {
         for ( int x = 0; x < 64; x ++ ) {
             // This needs to convert tile to base64
             // Then save that
-            fprintf(pFile, "%s", getBase64(this->tile[y * 64 + x]).c_str());
+            //fprintf(pFile, "%s", getBase64(this->tile[y * 64 + x]).c_str());
         }
         fprintf(pFile, "\n");           // goto next line
         
@@ -343,7 +326,7 @@ bool TLevel::saveZELDA(FILE *file) {
 // sets our tile
 void TTile::setTile(int tile) {
     this->tile = tile; // integer value of the current tile
-    this->xpos = this->tile/512*16 + (this->tile%512)%16;
+    this->xpos = (int)this->tile/512*16 + (this->tile%512)%16;
     this->ypos = (this->tile%512)/16;
 }
 

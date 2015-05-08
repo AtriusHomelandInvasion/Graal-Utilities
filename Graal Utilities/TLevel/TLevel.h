@@ -16,19 +16,20 @@
 #include "TLink.h"
 #include "TSign.h"
 #include "TBaddy.h"
+#include "TTile.h"
+#include "TLayer.h"
 
 using namespace std;
 
+// We need to list them like this so other cpp files can access them
+// otherwise they wont know they even exist
 vector<string> Tokenize(string input, char delimiter);
-
-////////////////////////////////////////////////////////////////////////////////////////////
-// Declare our custom classes
-////////////////////////////////////////////////////////////////////////////////////////////
+string getBase64(int tile);
 
 class TLevel {
 public:
-    //int tiledata[4096]; // per layer
-    int tile[4096];
+    TTile tile[4096];              // Tiles, no LAYER ?!? support yet
+    std::vector<TLayer *>layers;   // Layer support :)
     std::vector<TLink *> links;    // links within the level
     std::vector<TSign *> signs;    // signs within the level
     std::vector<TNPC *> npcs;      // npcs within the level
