@@ -13,7 +13,7 @@
 
 class TLayer {
 public:
-    TTile tile[4096];   // 1 level worth of tiles
+    TTile *tile[4096];   // 1 level worth of tiles
     TLayer();
     ~TLayer();
 };

@@ -11,7 +11,7 @@
 
 class TTile {
 public:
-    unsigned long tile;
+    int tile;
     int xpos;               // 'x' position on the tileset
     int ypos;               // 'y' position on the tileset
     void setTile(int tile); // needed to set the tile

@@ -23,6 +23,12 @@
 #include "TSprite.h"
 #include "TLayer.h"
 
-string extractPath(string path);
+#include <iostream>
+#include <dirent.h>
+
+string extractPath(string path);    // input: "levels/images/file.ext", output: "levels/images/"
+vector<string> Tokenize(string input, char delimiter);
+std::vector<string> GetGmapImages(TGmap *gmap);
+void compareImagesToFiles(vector<string> &list);
 
 #endif  /* defined(MAIN_H_) */

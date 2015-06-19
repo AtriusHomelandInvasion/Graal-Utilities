@@ -5,10 +5,6 @@
 //  Copyright (c) 2014 Matthew Warner. All rights reserved.
 //
 
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <sstream>
 #include "TLevel.h"
 
 using namespace std;
@@ -16,28 +12,15 @@ using namespace std;
 // this is needed for opening nw format levels and handling tiles
 string base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-// this is needed for grabbing tokens out of strings :)
-vector<string> Tokenize(string input, char delimiter) {
-    vector<string> output;
-    output.clear();
-    stringstream buf(input);
-    for(string token; getline(buf, token, delimiter); ) output.push_back(token);
-    
-    return output;
-}
-
 TLevel::TLevel() {
     this->name = "new1.nw";          // our default level name will be new#.nw
 }
 
 TLevel::~TLevel() {
-    // destroy all the tiles, links, ect associated with this level
-    // i think this is done automatically tho
+    // destructor
 }
 
-//
 // TLevel loadlevel function
-//
 // Only load levels using this funciton.. It will automatically load the rest and avoid any
 // problems that may occur.
 
@@ -54,8 +37,9 @@ bool TLevel::loadLevel(string filePath) {
         if ( header == "GR-V1.01" ) { this->loadGraal(file, 1); return true; }   // version 1
         if ( header == "GR-V1.02" ) { this->loadGraal(file, 2); return true; }   // version 2
         if ( header == "GR-V1.03" ) { this->loadGraal(file, 3); return true; }   // version 3
-        if ( header == "Z3-V1.03" ) { this->loadZelda(file);    return true; }   // version 3 this might be able to load off .graal
-        if ( header == "Z3-V1.04" ) { this->loadZelda(file);    return true; }   // version 4 this might be able to load off .graal
+        if ( header == "Z3-V1.03" ) { this->loadZelda(file);    return true; }   // version 3
+        if ( header == "Z3-V1.04" ) { this->loadZelda(file);    return true; }   // version 4
+        
         return false;   // we did not recognise the level header
     }
     return false;       // no level was found
@@ -78,13 +62,12 @@ bool TLevel::loadNW(string filePath) {
         for(string token; getline(buf, token, ' '); ) v.push_back(token);
 
 #ifdef TTILE_H_
-        // load tile's from board
+        // Add tile to the level
         if ( line.substr(0,5) ==  "BOARD" ) {
-            for ( int i = 0; i < 64; i++ ) {
-                unsigned long tile = (int)(base64.find(v[5].substr(i*2,1).c_str()) * 64) + (base64.find(v[5].substr(i*2+1,1).c_str()));
-                
+            for ( int x = 0; x < 64; x++ ) {
+                unsigned long tile = (int)(base64.find(v[5].substr(x*2,1).c_str()) * 64) + (base64.find(v[5].substr(x*2+1,1).c_str()));
                 int y = atoi(v[2].c_str());
-                this->tile[y * 64 + i].tile = tile;
+                this->tile[x + y * 64].setTile((int)tile);
             }
         }
 #endif
@@ -258,7 +241,7 @@ bool TLevel::loadGraal(FILE *file, int version) {
     // now on to links and everything else
     //
     
-    //this->saveNW(); // this will save only the tiles from our .graal level
+    this->saveNW(); // this will save only the tiles from our .graal level
     return 1;
 }
 
@@ -267,14 +250,16 @@ bool TLevel::loadGraal(FILE *file, int version) {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 // Graal NW format
+
 bool TLevel::saveNW() {
     
     // Might just use this->name in the "fopen()"
     std::cout << "output:" << this->name << std::endl;
     
-    FILE * pFile;
-    pFile = fopen("output.txt", "wb");  // open file for write binary mode
-    fprintf(pFile, "GLEVNW01\n");       // Header for NW level format
+    FILE * pFile;                            // Points to our file
+    pFile = fopen(this->name.c_str(), "wb"); // set name before saving if neededq
+    //pFile = fopen("output.txt", "wb");     // open file for write binary mode
+    fprintf(pFile, "GLEVNW01\n");            // Header for NW level format
     
     // TILES
     for ( int y = 0; y < 64; y ++ ) {
@@ -282,14 +267,14 @@ bool TLevel::saveNW() {
         for ( int x = 0; x < 64; x ++ ) {
             // This needs to convert tile to base64
             // Then save that
-            //fprintf(pFile, "%s", getBase64(this->tile[y * 64 + x]).c_str());
+            //fprintf(pFile, "%s", geetBase64(this->tile[y * 64 + x]).c_str());
         }
         fprintf(pFile, "\n");           // goto next line
         
     }
     
     // LINKS
-    for ( int i = 0; i < this->links.size()-1; i ++ ) {
+    for ( size_t i = 0; i < this->links.size()-1; i ++ ) {
         //fprintf("LINK %s %s %s %s %s %s %s\n", this->links[i]->level, atoi(this->links[i]->srcX), this->links[i]->scrY, this->links[i]->width, this->links[i]->height, this->links[i]->destX, this->links[i]->destY);
     }
     
@@ -322,13 +307,6 @@ bool TLevel::saveZELDA(FILE *file) {
 ////////////////////////////////////////////////////////////////////////////////////////////
 // TTile functions
 ////////////////////////////////////////////////////////////////////////////////////////////
-
-// sets our tile
-void TTile::setTile(int tile) {
-    this->tile = tile; // integer value of the current tile
-    this->xpos = (int)this->tile/512*16 + (this->tile%512)%16;
-    this->ypos = (this->tile%512)/16;
-}
 
 // get the base64 string of the tile, for use with nw levels
 string getBase64(int tile) {

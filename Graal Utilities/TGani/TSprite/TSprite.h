@@ -19,7 +19,7 @@ public:
     int y;
     int partx;
     int party;
-    int widht;
+    int width;
     int height;
     
     TSprite();

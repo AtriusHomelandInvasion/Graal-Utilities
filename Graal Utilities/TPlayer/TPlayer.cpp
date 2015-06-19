@@ -33,13 +33,21 @@ TPlayer::~TPlayer() {
     // not sure when this function is called
 }
 
+// This is a test weapon added to the player. I think it will just send the clientside code to the client
+// and the client can just read and execute maybe?
+
 void TPlayer::addweapon() {
+    
+    // Normally we won't need to create a weapon, we will just load one that is sent to us
+    // and add that.
     TWeapon weapon;
     weapon.image = "door.png";
     weapon.line.push_back("//#CLIENTSIDE");
     weapon.line.push_back("function onCreated(){");
     weapon.line.push_back("  player.chat = \"works\"");
     weapon.line.push_back("}");
+    
+    // Add the weapon to the player
     this->weapons.push_back(new TWeapon(weapon));
 }
 
@@ -59,7 +67,6 @@ void TPlayer::hurt(int damage) {
     
     if ( this->hearts - damage <= 0 ) {
         // player is dead
-        this->hearts = 0;
-        //this->dead();
+        this->hearts = 0; // so we don't show a negative heart value
     }
 }

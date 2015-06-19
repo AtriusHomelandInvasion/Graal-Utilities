@@ -10,6 +10,9 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
+
 #include "TTile.h"
 #include "TChest.h"
 #include "TNPC.h"
@@ -23,7 +26,6 @@ using namespace std;
 
 // We need to list them like this so other cpp files can access them
 // otherwise they wont know they even exist
-vector<string> Tokenize(string input, char delimiter);
 string getBase64(int tile);
 
 class TLevel {
